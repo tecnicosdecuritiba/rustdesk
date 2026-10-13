@@ -20,13 +20,13 @@ jobs:
           GH_REPO: ${{ github.repository }}
         run: |
           assets=$(gh release view tecs --json assets -q '.assets[].name')
-          alias() {
+          pub() {
             src=$(echo "$assets" | grep -E "$1" | sort -V | tail -1)
             if [ -z "$src" ]; then echo "missing $1"; return; fi
             gh release download tecs -p "$src" -O "$2" --clobber
             gh release upload tecs "$2" --clobber
           }
-          alias '^rustdesk-.*-x86_64\.exe$' tecs_remoto.exe
-          alias '^rustdesk-.*-universal\.apk$' tecs_remoto.apk
-          alias '^rustdesk-.*-aarch64\.dmg$' tecs_remoto_mac.dmg
-          alias '^rustdesk-.*-x86_64\.deb$' tecs_remoto_linux.deb
+          pub '^rustdesk-.*-x86_64\.exe$' tecs_remoto.exe
+          pub '^rustdesk-.*-universal\.apk$' tecs_remoto.apk
+          pub '^rustdesk-.*-aarch64\.dmg$' tecs_remoto_mac.dmg
+          pub '^rustdesk-.*-x86_64\.deb$' tecs_remoto_linux.deb
