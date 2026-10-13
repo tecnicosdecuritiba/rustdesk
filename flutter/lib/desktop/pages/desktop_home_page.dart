@@ -24,6 +24,7 @@ import 'package:url_launcher/url_launcher.dart';
 import 'package:window_manager/window_manager.dart';
 import 'package:window_size/window_size.dart' as window_size;
 import '../widgets/button.dart';
+import '../widgets/tecs_novidades.dart';
 
 class DesktopHomePage extends StatefulWidget {
   const DesktopHomePage({Key? key}) : super(key: key);
@@ -111,6 +112,7 @@ class _DesktopHomePageState extends State<DesktopHomePage>
         },
       ),
       buildTecsFreeBanner(),
+      const TecsNovidades(),
     ];
     if (isIncomingOnly) {
       children.addAll([
@@ -296,7 +298,7 @@ class _DesktopHomePageState extends State<DesktopHomePage>
                   color: Color(0xFFF7B25A), fontWeight: FontWeight.bold)),
           TextSpan(
               text:
-                  'Use à vontade entre os seus computadores. Sem anúncios, sem cobranças.'),
+                  'Use à vontade entre os seus computadores. Sem cobranças.'),
         ]),
         style: TextStyle(color: Colors.white, fontSize: 12),
       ),

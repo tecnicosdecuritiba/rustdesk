@@ -1,0 +1,21 @@
+{
+  "intervalo": 15,
+  "cartoes": [
+    {
+      "icone": "📹",
+      "cor": "#0A6FB0",
+      "titulo": "Câmeras de segurança",
+      "texto": "Instalação em Curitiba. Orçamento grátis.",
+      "botao": "Quero saber mais",
+      "link": "https://tecnicosdecuritiba.com.br"
+    },
+    {
+      "icone": "🔧",
+      "cor": "#F7931E",
+      "titulo": "Manutenção de computadores",
+      "texto": "Técnico na sua casa ou empresa.",
+      "botao": "Quero saber mais",
+      "link": "https://tecnicosdecuritiba.com.br"
+    }
+  ]
+}
