@@ -668,7 +668,7 @@ class _PrivilegeBoardState extends State<_PrivilegeBoard> {
             'N';
     return Container(
       width: double.infinity,
-      height: 160.0,
+      height: 180.0,
       margin: EdgeInsets.all(5.0),
       padding: EdgeInsets.all(5.0),
       decoration: BoxDecoration(
@@ -690,7 +690,12 @@ class _PrivilegeBoardState extends State<_PrivilegeBoard> {
             translate("Permissions"),
             style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
             textAlign: TextAlign.center,
-          ).marginOnly(left: 4.0, bottom: 8.0),
+          ).marginOnly(left: 4.0, bottom: 2.0),
+          Text(
+            'Toque para liberar ou bloquear',
+            style: TextStyle(fontSize: 12, color: Colors.grey),
+            textAlign: TextAlign.center,
+          ).marginOnly(bottom: 6.0),
           Expanded(
             child: GridView.count(
               crossAxisCount: crossAxisCount,

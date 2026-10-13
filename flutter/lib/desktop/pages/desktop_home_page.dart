@@ -110,6 +110,7 @@ class _DesktopHomePageState extends State<DesktopHomePage>
           }
         },
       ),
+      buildTecsFreeBanner(),
     ];
     if (isIncomingOnly) {
       children.addAll([
@@ -275,6 +276,30 @@ class _DesktopHomePageState extends State<DesktopHomePage>
         ),
       ),
       onHover: (value) => hover.value = value,
+    );
+  }
+
+  Widget buildTecsFreeBanner() {
+    return Container(
+      width: double.infinity,
+      margin: const EdgeInsets.fromLTRB(12, 12, 12, 8),
+      padding: const EdgeInsets.all(10),
+      decoration: BoxDecoration(
+        color: const Color(0xFF04225E),
+        borderRadius: BorderRadius.circular(10),
+      ),
+      child: const Text.rich(
+        TextSpan(children: [
+          TextSpan(
+              text: '🎁 App livre para clientes TECS. ',
+              style: TextStyle(
+                  color: Color(0xFFF7B25A), fontWeight: FontWeight.bold)),
+          TextSpan(
+              text:
+                  'Use à vontade entre os seus computadores. Sem anúncios, sem cobranças.'),
+        ]),
+        style: TextStyle(color: Colors.white, fontSize: 12),
+      ),
     );
   }
 
