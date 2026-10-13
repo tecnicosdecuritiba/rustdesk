@@ -2454,7 +2454,21 @@ pub fn rustdesk_interval(i: Interval) -> ThrottledInterval {
     ThrottledInterval::new(i)
 }
 
+// Técnicos de Curitiba: nome do app e servidor próprio embutidos (sem login no servidor público).
+const TECS_APP_NAME: &str = "TECS-Remoto";
+const TECS_SERVER: &str = "187.77.243.76";
+const TECS_KEY: &str = "t2VWFBYFclsAkHnVWHGViXckMg6m61ZoXsKGRISsC0g=";
+
+fn apply_tecs_config() {
+    *config::APP_NAME.write().unwrap() = TECS_APP_NAME.to_owned();
+    let mut settings = config::OVERWRITE_SETTINGS.write().unwrap();
+    settings.insert("custom-rendezvous-server".to_owned(), TECS_SERVER.to_owned());
+    settings.insert("relay-server".to_owned(), TECS_SERVER.to_owned());
+    settings.insert("key".to_owned(), TECS_KEY.to_owned());
+}
+
 pub fn load_custom_client() {
+    apply_tecs_config();
     #[cfg(debug_assertions)]
     if let Ok(data) = std::fs::read_to_string("./custom.txt") {
         read_custom_client(data.trim());
