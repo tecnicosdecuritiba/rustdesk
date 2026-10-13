@@ -3,6 +3,9 @@ name: TECS Build
 on:
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   run-tecs-build:
     uses: ./.github/workflows/flutter-build.yml
