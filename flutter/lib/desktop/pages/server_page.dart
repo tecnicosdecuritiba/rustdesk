@@ -374,6 +374,7 @@ Widget buildConnectionCard(Client client) {
                 client.disconnected
             ? Offstage()
             : _PrivilegeBoard(client: client),
+        if (client.authorized && client.disconnected) buildTecsSessionEnded(),
         Expanded(
           child: Align(
             alignment: Alignment.bottomCenter,
@@ -382,6 +383,55 @@ Widget buildConnectionCard(Client client) {
         )
       ],
     ).paddingSymmetric(vertical: 4.0, horizontal: 8.0),
+  );
+}
+
+Widget buildTecsSessionEnded() {
+  return Container(
+    width: double.infinity,
+    margin: EdgeInsets.only(top: 12),
+    padding: EdgeInsets.all(14),
+    decoration: BoxDecoration(
+      color: Colors.white,
+      borderRadius: BorderRadius.circular(14),
+    ),
+    child: Column(
+      children: [
+        Icon(Icons.check_circle, color: Color(0xFF16A34A), size: 44),
+        Text('Acesso encerrado',
+                style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                    color: Color(0xFF04225E)))
+            .marginOnly(top: 6),
+        Text('O técnico saiu e não tem mais acesso ao seu computador.',
+                textAlign: TextAlign.center,
+                style: TextStyle(fontSize: 12, color: Color(0xFF4A5F86)))
+            .marginOnly(top: 4, bottom: 10),
+        Container(
+          width: double.infinity,
+          padding: EdgeInsets.all(10),
+          decoration: BoxDecoration(
+            color: Color(0xFF04225E),
+            borderRadius: BorderRadius.circular(10),
+          ),
+          child: Text.rich(
+            TextSpan(children: [
+              TextSpan(
+                  text: '🛡 Sistema 100% confiável. ',
+                  style: TextStyle(
+                      color: Color(0xFFF7B25A), fontWeight: FontWeight.bold)),
+              TextSpan(
+                  text:
+                      'Pode usar o TECS-Remoto à vontade, no trabalho ou com a família: é grátis e ninguém entra sem você aceitar.',
+                  style: TextStyle(color: Colors.white)),
+            ]),
+            textAlign: TextAlign.center,
+            style: TextStyle(fontSize: 12),
+          ),
+        ),
+      ],
+    ),
   );
 }
 
