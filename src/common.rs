@@ -2465,6 +2465,12 @@ fn apply_tecs_config() {
     settings.insert("custom-rendezvous-server".to_owned(), TECS_SERVER.to_owned());
     settings.insert("relay-server".to_owned(), TECS_SERVER.to_owned());
     settings.insert("key".to_owned(), TECS_KEY.to_owned());
+    drop(settings);
+    // Cliente precisa clicar em "Aceitar"; PCs internos podem trocar para senha nas configurações.
+    config::DEFAULT_SETTINGS
+        .write()
+        .unwrap()
+        .insert("approve-mode".to_owned(), "click".to_owned());
 }
 
 pub fn load_custom_client() {
